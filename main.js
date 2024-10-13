@@ -20,4 +20,5 @@ async function login() {
   url += "&scope=user-read-private user-read-email user-modify-playback-state user-read-playback-position user-library-read streaming user-read-playback-state user-read-recently-played playlist-read-private";
   window.location.href = url;
 }
+console.log("a")
 login();
