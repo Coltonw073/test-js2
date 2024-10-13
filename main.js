@@ -13,5 +13,5 @@ async function login() {
   data = await result.json();
   token = data.access_token;
 }
-console.log("a")
+console.log("b")
 login();
