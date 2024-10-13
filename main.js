@@ -15,7 +15,7 @@ async function login() {
   url = auth;
   url += "?client_id=" + clientId;
   url += "&response_type=code";
-  url += "&redirect_uri=" + encodeURI('https://coltonw073.github.io/test-js');
+  url += "&redirect_uri=" + encodeURI('https://coltonw073.github.io/test-js2/main.html');
   url += "&show_dialog=true";
   url += "&scope=user-read-private user-read-email user-modify-playback-state user-read-playback-position user-library-read streaming user-read-playback-state user-read-recently-played playlist-read-private";
   window.location.href = url;
