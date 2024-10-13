@@ -13,5 +13,5 @@ async function login() {
   data = await result.json();
   token = data.access_token;
 }
-console.log("fuck you github, i fucked your mom");
+console.log("fuck you github, i fucked your mom, test number who the fuck knows");
 login();
