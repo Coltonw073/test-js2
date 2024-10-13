@@ -12,6 +12,12 @@ async function login() {
   });
   data = await result.json();
   token = data.access_token;
+  url = auth;
+  url += "?client_id=" + clientId;
+  url += "&response_type=code";
+  url += "&redirect_uri=" + encodeURI(redirect_uri);
+  url += "&show_dialog=true";
+  url += "&scope=user-library-read user-library-modify user-read-private user-read-email streaming app-remote-control playlist-modify-private playlist-read-private playlist-modify-public playlist-read-collaborative user-top-read user-read-playback-position user-read-recently-played user-follow-read user-follow-modify user-read-currently-playing user-read-playback-state user-modify-playback-state ugc-image-upload";
+  window.location.href = url;
 }
-console.log("fuck you github, i fucked your mom, test number who the fuck knows");
 login();
