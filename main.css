@@ -1,0 +1,52 @@
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+.block {
+  width: 100%;
+  height: 10%;
+  margin: 0px;
+}
+#block1 {
+  background-color: red;
+}
+#block2 {
+  background-color: orange;
+}
+#block3 {
+  background-color: yellow;
+}
+#block4 {
+  background-color: green;
+}
+#block5 {
+  background-color: blue;
+}
+#block6 {
+  background-color: indigo;
+}
+#block7 {
+  background-color: violet;
+}
+#block8 {
+  background-color: red;
+}
+#block9 {
+  background-color: orange;
+}
+#block10 {
+  background-color: yellow;
+}
+.song {
+  margin: 0px;
+  font-size: 75px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
