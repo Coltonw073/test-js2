@@ -2,6 +2,8 @@ auth = "https://accounts.spotify.com/authorize";
 clientId = 'aaa1efff87ca4c048ae2c9ca2e61a9c7';
 clientSecret = '6e4415c92c884bd188442616360d00e6';
 async function login() {
+  urlParams = new URLSearchParams(queryString);
+  code = urlParams.get('code')
   body = "grant_type=authorization_code";
   body += "&code=" + code;
   body += "&redirect_uri=" + encodeURI('https://coltonw073.github.io/test-js2/test.html');
