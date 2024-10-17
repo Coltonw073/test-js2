@@ -21,7 +21,7 @@ async function login() {
   data = await result.json();
   token = data.access_token;
 }
-async function req(path) {
+async function req() {
   result = await fetch('https://api.spotify.com/v1/' + path, {
     method: 'GET',
     headers: {
@@ -31,4 +31,5 @@ async function req(path) {
   album = await result.json();
 }
 login();
+req('me/top/tracks?time_range=long_term&limit=10&offset=0');
 console.log(token);
