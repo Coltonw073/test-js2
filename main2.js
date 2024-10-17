@@ -22,14 +22,18 @@ async function login() {
   token = data.access_token;
 }
 async function req() {
-  result = await fetch('https://api.spotify.com/v1/' + path, {
+  result = await fetch('https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=10&offset=0', {
     method: 'GET',
     headers: {
       'Authorization' : 'Bearer ' + token
     }
   });
-  album = await result.json();
+  results = await result.json();
+  a = 0;
+  while (a < 10) {
+    document.getElementById('block' + (a+1).toString()).children[0].innerHTML = (a+1).toString() + ". " + results.items[a].name
+    a = a + 1;
+  }
 }
 login();
-req('me/top/tracks?time_range=long_term&limit=10&offset=0');
-console.log(token);
+req();
