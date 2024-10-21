@@ -2,6 +2,12 @@ v = "s";
 auth = "https://accounts.spotify.com/authorize";
 clientId = 'aaa1efff87ca4c048ae2c9ca2e61a9c7';
 clientSecret = '6e4415c92c884bd188442616360d00e6';
+function rep() {
+  next();
+  setTimeout(function() {
+    rep();
+  }, 1000);
+}
 async function login() {
   queryString = window.location.search;
   urlParams = new URLSearchParams(queryString);
@@ -34,37 +40,40 @@ async function login() {
     document.getElementById("blocktxt" + (a+1).toString()).innerHTML = (a+1).toString() + '. ' + results.items[a].name;
     a = a + 1;
   }
+  rep();
 }
-function next(ele) {
-  atr = ele.getAttribute('atr');
+function next() {
+  atr = document.getElementById('next').getAttribute('atr');
   bnum = parseInt(atr.substring(1))
-  if (bnum != 10) {
-    document.getElementById('block' + bnum.toString()).style.animation = 'fromcentertoleft 0.4s 0s 1 normal forwards';
-    document.getElementById('block' + (bnum+1).toString()).style.animation = 'fromrighttocenter 0.4s 0s 1 normal forwards';
+  if (bnum != 1 && bnum != 10) {
+    document.getElementById('block' + bnum.toString()).style.animation = 'fromcentertoleft 1s 0s 1 normal linear forwards';
+    document.getElementById('block' + (bnum+1).toString()).style.animation = 'fromrighttocenter 1s 0s 1 normal linear forwards';
     if (bnum != 9) {
-      document.getElementById('block' + (bnum+2).toString()).style.animation = 'fromofftoright 0.4s 0s 1 normal forwards';
+      document.getElementById('block' + (bnum+2).toString()).style.animation = 'fromofftoright 1s 0s 1 normal linear forwards';
     }
     if (bnum != 1) {
-      document.getElementById('block' + (bnum-1).toString()).style.animation = 'fromlefttooff 0.4s 0s 1 normal forwards';
+      document.getElementById('block' + (bnum-1).toString()).style.animation = 'fromlefttooff 1s 0s 1 normal linear forwards';
     }
     document.getElementById('next').setAttribute('atr', 'b' + (bnum+1).toString())
     document.getElementById('prev').setAttribute('atr', 'b' + (bnum+1).toString())
   }
-}
-function prev(ele) {
-  atr = ele.getAttribute('atr');
-  bnum = parseInt(atr.substring(1))
-  if (bnum != 1) {
-    document.getElementById('block' + bnum.toString()).style.animation = 'fromcentertoright 0.4s 0s 1 normal forwards';
-    document.getElementById('block' + (bnum-1).toString()).style.animation = 'fromlefttocenter 0.4s 0s 1 normal forwards';
-    if (bnum > 2) {
-      document.getElementById('block' + (bnum-2).toString()).style.animation = 'fromofftoleft 0.4s 0s 1 normal forwards';
-    }
-    if (bnum < 10) {
-      document.getElementById('block' + (bnum+1).toString()).style.animation = 'fromrighttooff 0.4s 0s 1 normal forwards';
-    }
-    document.getElementById('next').setAttribute('atr', 'b' + (bnum-1).toString())
-    document.getElementById('prev').setAttribute('atr', 'b' + (bnum-1).toString())
+  if (bnum == 9) {
+    document.getElementById('block1').style.animation = 'fromofftoright 1s 0s 1 normal linear forwards';
+  }
+  if (bnum == 10) {
+    document.getElementById('block10').style.animation = 'fromcentertoleft 1s 0s 1 normal linear forwards';
+    document.getElementById('block9').style.animation = 'fromlefttooff 1s 0s 1 normal linear forwards';
+    document.getElementById('block1').style.animation = 'fromrighttocenter 1s 0s 1 normal linear forwards';
+    document.getElementById('block2').style.animation = 'fromofftoright 1s 0s 1 normal linear forwards';
+    document.getElementById('next').setAttribute('atr', 'b1');
+    document.getElementById('prev').setAttribute('atr', 'b1');
+  }
+  if (bnum == 1) {
+    document.getElementById('block1').style.animation = 'fromcentertoleft 1s 0s 1 normal linear forwards';
+    document.getElementById('block10').style.animation = 'fromlefttooff 1s 0s 1 normal linear forwards';
+    document.getElementById('block2').style.animation = 'fromrighttocenter 1s 0s 1 normal linear forwards';
+    document.getElementById('block3').style.animation = 'fromofftoright 1s 0s 1 normal linear forwards';
+    document.getElementById('next').setAttribute('atr', 'b2');
+    document.getElementById('prev').setAttribute('atr', 'b2');
   }
 }
-login();
