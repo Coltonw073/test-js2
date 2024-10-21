@@ -40,7 +40,9 @@ async function login() {
     document.getElementById("blocktxt" + (a+1).toString()).innerHTML = (a+1).toString() + '. ' + results.items[a].name;
     a = a + 1;
   }
-  rep();
+  setTimeout(function() {
+    rep();
+  }, 1000);
 }
 function next() {
   atr = document.getElementById('next').getAttribute('atr');
