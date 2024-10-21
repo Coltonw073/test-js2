@@ -77,3 +77,4 @@ function next() {
     document.getElementById('prev').setAttribute('atr', 'b2');
   }
 }
+login();
