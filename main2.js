@@ -30,8 +30,41 @@ async function login() {
   results = await result.json();
   a = 0;
   while (a < 10) {
-    document.getElementById('block' + (a+1).toString()).children[0].innerHTML = (a+1).toString() + ". " + results.items[a].name
+    document.getElementById("blockim" + (a+1).toString()).style.backgroundImage = "url('" + results.items[a].album.images[0].url +  "')";
+    document.getElementById("blocktxt" + (a+1).toString()).innerHTML = (a+1).toString() + '. ' + results.items[a].name;
     a = a + 1;
+  }
+}
+function next(ele) {
+  atr = ele.getAttribute('atr');
+  bnum = parseInt(atr.substring(1))
+  if (bnum != 10) {
+    document.getElementById('block' + bnum.toString()).style.animation = 'fromcentertoleft 0.4s 0s 1 normal forwards';
+    document.getElementById('block' + (bnum+1).toString()).style.animation = 'fromrighttocenter 0.4s 0s 1 normal forwards';
+    if (bnum != 9) {
+      document.getElementById('block' + (bnum+2).toString()).style.animation = 'fromofftoright 0.4s 0s 1 normal forwards';
+    }
+    if (bnum != 1) {
+      document.getElementById('block' + (bnum-1).toString()).style.animation = 'fromlefttooff 0.4s 0s 1 normal forwards';
+    }
+    document.getElementById('next').setAttribute('atr', 'b' + (bnum+1).toString())
+    document.getElementById('prev').setAttribute('atr', 'b' + (bnum+1).toString())
+  }
+}
+function prev(ele) {
+  atr = ele.getAttribute('atr');
+  bnum = parseInt(atr.substring(1))
+  if (bnum != 1) {
+    document.getElementById('block' + bnum.toString()).style.animation = 'fromcentertoright 0.4s 0s 1 normal forwards';
+    document.getElementById('block' + (bnum-1).toString()).style.animation = 'fromlefttocenter 0.4s 0s 1 normal forwards';
+    if (bnum > 2) {
+      document.getElementById('block' + (bnum-2).toString()).style.animation = 'fromofftoleft 0.4s 0s 1 normal forwards';
+    }
+    if (bnum < 10) {
+      document.getElementById('block' + (bnum+1).toString()).style.animation = 'fromrighttooff 0.4s 0s 1 normal forwards';
+    }
+    document.getElementById('next').setAttribute('atr', 'b' + (bnum-1).toString())
+    document.getElementById('prev').setAttribute('atr', 'b' + (bnum-1).toString())
   }
 }
 login();

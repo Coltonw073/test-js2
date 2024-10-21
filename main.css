@@ -2,51 +2,182 @@ html {
   height: 100%;
   width: 100%;
   margin: 0px;
+  perspective: 1000px;
 }
 body {
   height: 100%;
   width: 100%;
   margin: 0px;
-}
-.block {
-  width: 100%;
-  height: 10%;
-  margin: 0px;
+  perspective: 1000px;
 }
 #block1 {
-  background-color: red;
+  transform: translate3d(0px, 0px, 0px) rotateY(0deg);
+  opacity: 1.0;
 }
 #block2 {
-  background-color: orange;
+  transform: translate3d(300px, 0px, -150px) rotateY(45deg);
+  opacity: 0.1;
 }
 #block3 {
-  background-color: yellow;
+  transform: translate3d(450px, 0px, -500px) rotateY(90deg);
+  opacity: 0.0;
 }
 #block4 {
-  background-color: green;
+  transform: translate3d(450px, 0px, -500px) rotateY(90deg);
+  opacity: 0.0;
 }
 #block5 {
-  background-color: blue;
+  transform: translate3d(450px, 0px, -500px) rotateY(90deg);
+  opacity: 0.0;
 }
 #block6 {
-  background-color: indigo;
+  transform: translate3d(450px, 0px, -500px) rotateY(90deg);
+  opacity: 0.0;
 }
 #block7 {
-  background-color: violet;
+  transform: translate3d(450px, 0px, -500px) rotateY(90deg);
+  opacity: 0.0;
 }
 #block8 {
-  background-color: red;
+  transform: translate3d(450px, 0px, -500px) rotateY(90deg);
+  opacity: 0.0;
 }
 #block9 {
-  background-color: orange;
+  transform: translate3d(450px, 0px, -500px) rotateY(90deg);
+  opacity: 0.0;
 }
 #block10 {
-  background-color: yellow;
+  transform: translate3d(450px, 0px, -500px) rotateY(90deg);
+  opacity: 0.0;
 }
-.song {
-  margin: 0px;
-  font-size: 60px;
-  width: 100%;
-  height: 100%;
+.block {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -150px;
+  margin-top: -150px;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  color: white;
+  text-decoration-color: white;
+  border-radius: 15%;
+  background-size: cover;
+}
+#buttons {
+  width: 210px;
+  height: 200px;
+  float: left;
+  position: absolute;
+  left: 50%;
+  margin-left: -105px;
+  top: 73%;
+}
+#prev {
+  width: 100px;
+}
+#next {
+  width: 100px;
+}
+@keyframes fromcentertoleft {
+  from {
+    transform: translate3d(0px, 0px, 0px) rotateY(0deg);
+    opacity: 1.0;
+  }
+  to {
+    transform: translate3d(-300px, 0px, -150px) rotateY(-45deg);
+    opacity: 0.1;
+  }
+}
+@keyframes fromrighttocenter {
+  from {
+    transform: translate3d(300px, 0px, -150px) rotateY(45deg);
+    opacity: 0.1;
+  }
+  to {
+    transform: translate3d(0px, 0px, 0px) rotateY(0deg);
+    opacity: 1.0;
+  }
+}
+@keyframes fromofftoright {
+  from {
+    transform: translate3d(450px, 0px, -500px) rotateY(90deg);
+    opacity: 0.0;
+  }
+  to {
+    transform: translate3d(300px, 0px, -150px) rotateY(45deg);
+    opacity: 0.1;
+  }
+}
+@keyframes fromlefttooff {
+  from {
+    transform: translate3d(-300px, 0px, -150px) rotateY(-45deg);
+    opacity: 0.1;
+  }
+  to {
+    transform: translate3d(-450px, 0px, -500px) rotateY(-90deg);
+    opacity: 0.0;
+  }
+}
+@keyframes fromcentertoright {
+  from {
+    transform: translate3d(0px, 0px, 0px) rotateY(0deg);
+    opacity: 1.0;
+  }
+  to {
+    transform: translate3d(300px, 0px, -150px) rotateY(45deg);
+    opacity: 0.1;
+  }
+}
+@keyframes fromlefttocenter {
+  from {
+    transform: translate3d(-300px, 0px, -150px) rotateY(-45deg);
+    opacity: 0.1;
+  }
+  to {
+    transform: translate3d(0px, 0px, 0px) rotateY(0deg);
+    opacity: 1.0;
+  }
+}
+@keyframes fromofftoleft {
+  from {
+    transform: translate3d(-450px, 0px, -500px) rotateY(-90deg);
+    opacity: 0.0;
+  }
+  to {
+    transform: translate3d(-300px, 0px, -150px) rotateY(-45deg);
+    opacity: 0.1;
+  }
+}
+@keyframes fromrighttooff {
+  from {
+    transform: translate3d(300px, 0px, -150px) rotateY(45deg);
+    opacity: 0.1;
+  }
+  to {
+    transform: translate3d(450px, 0px, -500px) rotateY(90deg);
+    opacity: 0.0;
+  }
+}
+.blockim {
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 15%;
+  position: relative;
+  left: 50%;
+  margin-left: -100px;
+}
+.blocktxt {
+  width: 300px;
+  height: 100px;
+  bottom: 0%;
+  left: 50%;
+  margin-left: -150px;
+  position: relative;
+  font-size: 20px;
   text-align: center;
+  color: black;
 }
